@@ -1,13 +1,32 @@
 package study.ooad.first;
 
 public class Guitar {
-	
-	private String serialNumber, builder, model, type, backWood, topWood;
+
+	// Variable (Version1)
+//	private String serialNumber, builder, model, type, backWood, topWood;
 	private double price;
+	
+	private String serialNumber, model;
+	private Builder builder;
+	private Type type;
+	private Wood backWood, topWood;
+
 		
-	// Constructor
-	public Guitar(String serialNumber, double price, String builder, String model, String type, String backWood,
-			String topWood) {
+	// Constructor (Version 1)
+//	public Guitar(String serialNumber, double price, String builder, String model, String type, String backWood,
+//			String topWood) {
+//		this.serialNumber = serialNumber;
+//		this.price = price;
+//		this.builder = builder;
+//		this.model = model;
+//		this.type = type;
+//		this.backWood = backWood;
+//		this.topWood = topWood;
+//	}
+	
+	public Guitar(String serialNumber, double price, Builder builder, 
+				  String model, Type type, Wood backWood, Wood topWood) 
+	{
 		this.serialNumber = serialNumber;
 		this.price = price;
 		this.builder = builder;
@@ -16,28 +35,30 @@ public class Guitar {
 		this.backWood = backWood;
 		this.topWood = topWood;
 	}
-	
+
+
 	// Getter
 	public String getSerialNumber() {
 		return serialNumber;
 	}
-	public double getPrice() {
-		return price;
-	}
-	public String getBuilder() {
-		return builder;
-	}
 	public String getModel() {
 		return model;
 	}
-	public String getType() {
+	public double getPrice() {
+		return price;
+	}
+	public Builder getBuilder() {
+		return builder;
+	}
+	public Type getType() {
 		return type;
 	}
-	public String getBackWood() {
+	public Wood getBackWood() {
 		return backWood;
 	}
-	public String getTopWood() {
+	public Wood getTopWood() {
 		return topWood;
 	}
+	
 	
 }

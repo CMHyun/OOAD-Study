@@ -8,7 +8,7 @@ public class Inventory {
 	private List<Guitar> guitars;
 	
 	// Default Constructor
-	/**
+	/**O
 	 * 기본 생성자입니다.
 	 * 생성자에서 List 타입의 변수인 guitars 변수가
 	 * ArrayList로 생성됩니다.
@@ -38,16 +38,38 @@ public class Inventory {
 	 * @param backWood
 	 * @param topWood
 	 */
+//	public void addGuitar(String serialNumber, double price, 
+//					 String builder, String model, 
+//					 String type, String backWood,
+//					 String topWood) 
+//	{
+//		Guitar guitar = new Guitar(serialNumber, price, 
+//								builder, model, type, 
+//								backWood, topWood);
+//		
+//		guitars.add(guitar);
+//	}
+	
+	/**
+	 * 
+	 * @param serialNumber
+	 * @param price
+	 * @param builder
+	 * @param model
+	 * @param type
+	 * @param backWood
+	 * @param topWood
+	 */
 	public void addGuitar(String serialNumber, double price, 
-					 String builder, String model, 
-					 String type, String backWood,
-					 String topWood) 
+			 Builder builder, String model, 
+			 Type type, Wood backWood,
+			 Wood topWood) 
 	{
-		Guitar guitar = new Guitar(serialNumber, price, 
-								builder, model, type, 
-								backWood, topWood);
-		
-		guitars.add(guitar);
+	Guitar guitar = new Guitar(serialNumber, price, 
+							builder, model, type, 
+							backWood, topWood);
+	
+	guitars.add(guitar);
 	}
 
 	/**
@@ -72,45 +94,99 @@ public class Inventory {
 	 * @param searchGuitar
 	 * @return
 	 */
-	public Guitar search(Guitar searchGuitar) {
+//	public Guitar search(Guitar searchGuitar) {
+//		
+//		for (Guitar guitar : guitars) {
+//			// 가격과 일려번호는 유일한 값이니깐 무시!
+//			
+//			String builder = searchGuitar.getBuilder();
+//		    if ((builder != null) && (!builder.equals("")) &&
+//		    		(!builder.equals(guitar.getBuilder())))
+//		    	continue;
+//		      
+//		    String model = searchGuitar.getModel();
+//		    if ((model != null) && (!model.equals("")) &&
+//		    		(!model.equals(guitar.getModel())))
+//		    	continue;
+//		      
+//		    String type = searchGuitar.getType();
+//		    if ((type != null) && (!searchGuitar.equals("")) &&
+//		    		(!type.equals(guitar.getType())))
+//		    	continue;
+//		      
+//		    String backWood = searchGuitar.getBackWood();
+//		    if ((backWood != null) && (!backWood.equals("")) &&
+//		    		(!backWood.equals(guitar.getBackWood())))
+//		    	continue;
+//		      
+//		    String topWood = searchGuitar.getTopWood();
+//		    if ((topWood != null) && (!topWood.equals("")) &&
+//		    		(!topWood.equals(guitar.getTopWood())))
+//		    	continue;
+//		      
+//		    return guitar;
+//		}
+//		
+//		return null;
+//	}
+	
+	
+//	public Guitar search(Guitar searchGuitar) {
+//		
+//		for (Guitar guitar : guitars) {
+//			// 가격과 일려번호는 유일한 값이니깐 무시!
+//			
+//			String model = searchGuitar.getModel();
+//		    if ((model != null) && (!model.equals("")) &&
+//		    		(!model.equals(guitar.getModel())))
+//		    	continue;
+//			
+//			if (searchGuitar.getBuilder() != guitar.getBuilder())
+//				continue;
+//
+//		    if (searchGuitar.getType() != guitar.getType())
+//		    	continue;
+//		    
+//		    if (searchGuitar.getBackWood() != guitar.getBackWood())
+//		    	continue;
+//		      
+//		    if (searchGuitar.getTopWood() != guitar.getTopWood())
+//		    	continue;
+//		      
+//		    return guitar;
+//		}
+//		
+//		return null;
+//	}
+
+	public List<Guitar> search(Guitar searchGuitar) {
+		
+		List<Guitar> matchingGuitars = new ArrayList<Guitar>();
 		
 		for (Guitar guitar : guitars) {
 			// 가격과 일려번호는 유일한 값이니깐 무시!
 			
-			String builder = searchGuitar.getBuilder();
-		    if ((builder != null) && (!builder.equals("")) &&
-		    		(!builder.equals(guitar.getBuilder())))
-		    	continue;
-		      
-		    String model = searchGuitar.getModel();
+			String model = searchGuitar.getModel();
 		    if ((model != null) && (!model.equals("")) &&
 		    		(!model.equals(guitar.getModel())))
 		    	continue;
-		      
-		    String type = searchGuitar.getType();
-		    if ((type != null) && (!searchGuitar.equals("")) &&
-		    		(!type.equals(guitar.getType())))
+			
+			if (searchGuitar.getBuilder() != guitar.getBuilder())
+				continue;
+
+		    if (searchGuitar.getType() != guitar.getType())
+		    	continue;
+		    
+		    if (searchGuitar.getBackWood() != guitar.getBackWood())
 		    	continue;
 		      
-		    String backWood = searchGuitar.getBackWood();
-		    if ((backWood != null) && (!backWood.equals("")) &&
-		    		(!backWood.equals(guitar.getBackWood())))
+		    if (searchGuitar.getTopWood() != guitar.getTopWood())
 		    	continue;
-		      
-		    String topWood = searchGuitar.getTopWood();
-		    if ((topWood != null) && (!topWood.equals("")) &&
-		    		(!topWood.equals(guitar.getTopWood())))
-		    	continue;
-		      
-		    return guitar;
+		    
+		    matchingGuitars.add(guitar);
 		}
 		
-		return null;
+		return matchingGuitars;
 	}
-	
-	
-	
-
-	
 	
 }
